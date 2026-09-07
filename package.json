@@ -1,0 +1,10 @@
+{
+  "name": "sleeper-commish-bot",
+  "version": "1.0.0",
+  "description": "Drafts recurring commissioner messages for a Sleeper dynasty league using live league data.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node check.mjs"
+  }
+}
