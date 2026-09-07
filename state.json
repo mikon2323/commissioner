@@ -3,7 +3,12 @@
     "1314670832131276800": {
       "newLeagueYear": true,
       "draftComplete": true,
-      "trainingCampActive": true
+      "trainingCampActive": true,
+      "recurring": {
+        "poachingReminder": [
+          "2026-09-07"
+        ]
+      }
     }
   }
 }
