@@ -32,6 +32,25 @@ See `lib/messageRegistry.mjs` for the full list, trigger logic, and which
 ones need an external check (currently only `trainingCampActive`, since NFL
 training camp dates aren't in Sleeper's API).
 
+## Regular season schedule generator
+
+```
+node generate-schedule.mjs
+```
+
+Generates the 14-week regular season schedule: an 11-round round robin
+(every team plays every other team once) plus 3 extra rounds where each team
+gets exactly one rematch against a Contender, one against a Middle team, and
+one against a Rebuilder — tiers are last season's Max PF (top 4 / middle 4 /
+bottom 4 by `ppts`), specific opponents within each tier are randomized. See
+`lib/scheduleGenerator.mjs` for the algorithm (and why it's guaranteed valid:
+each team ends up with exactly one extra opponent per tier by construction,
+not by chance). Writes `output/schedule-<season>.md`.
+
+This is **not** wired into the automated daily check — it involves a random
+draw and produces something irreversible once posted, so it's meant to be
+run once per season and reviewed before you enter it into Sleeper.
+
 ## Automation architecture
 
 - **Local**: Windows Task Scheduler (`SleeperCommishBot-DailyCheck`, see
