@@ -22,3 +22,9 @@ export const REGULAR_SEASON_WAIVER_TIME_LABEL = "3am EST";
 export const PAYOUT_1ST = 300;
 export const PAYOUT_2ND = 200;
 export const PAYOUT_3RD = 100;
+
+// Date the first NFL team opens training camp this offseason (YYYY-MM-DD).
+// Not available from Sleeper's API — update this once each summer once the
+// league announces camp report dates (usually mid/late July). Leave as null
+// until known; the trainingCampActive message simply won't fire.
+export const TRAINING_CAMP_START_DATE = null;
