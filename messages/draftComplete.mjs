@@ -17,7 +17,7 @@ export function buildDraftCompleteMessage(league) {
   const cap = rosterCap(league);
   const nextWaiverDate = formatDateLong(nextWeekdayAfter(new Date(), WAIVER_WEEKDAY));
 
-  const body = `That concludes our draft — thank you all for staying engaged throughout the week. A few things to note:
+  const body = `🚨 @all That concludes our draft — thank you all for staying engaged throughout the week. A few things to note:
 
 1. Please ensure your roster has no more than ${cap} total players as soon as possible.
 

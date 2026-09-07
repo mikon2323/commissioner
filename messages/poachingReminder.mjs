@@ -28,7 +28,7 @@ export async function getPoachingReminderTrigger(league) {
 export function buildPoachingReminderMessage() {
   return {
     subject: "Weekly Reminder — Poaching Window",
-    body: "Reminder: Poaching window open today",
+    body: "🚨 @all Reminder: Poaching window open today",
     needsManualInput: [],
   };
 }

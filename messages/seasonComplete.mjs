@@ -53,7 +53,7 @@ export async function buildSeasonCompleteMessage(league) {
     ? `${champion.name} ($${PAYOUT_1ST}) ${runnerUp.name} ($${PAYOUT_2ND}) ${third.name} ($${PAYOUT_3RD})`
     : `${champion.name} ($${PAYOUT_1ST}) ${runnerUp.name} ($${PAYOUT_2ND})`;
 
-  const body = `Congratulations to ${champion.name} on ${recordPhrase} and winning the ${league.season} ${league.name} season!
+  const body = `🚨 @all Congratulations to ${champion.name} on ${recordPhrase} and winning the ${league.season} ${league.name} season!
 
 We have now completed ${seasonCount} seasons and I am excited for the many more ahead. Thank you as always to those that have been here from the start, those that have joined along the way, and those who completed their first season with us for keeping this league fun and competitive.
 

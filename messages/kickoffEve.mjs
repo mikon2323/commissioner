@@ -20,7 +20,7 @@ export async function getKickoffEveTrigger() {
 export function buildKickoffEveMessage(league) {
   const autosubs = league.settings.max_subs;
 
-  const body = `🚨 As kickoff approaches tomorrow, a few final announcements:
+  const body = `🚨 @all As kickoff approaches tomorrow, a few final announcements:
 
 Waivers are now on regular schedule (${REGULAR_SEASON_WAIVER_WEEKDAY} ${REGULAR_SEASON_WAIVER_TIME_LABEL})
 

@@ -52,7 +52,7 @@ export async function buildRookieDraftReminderMessage(league, draft) {
 
   const dateTimeLabel = formatDraftDateTime(draft.start_time);
 
-  const body = `Our rookie draft kicks off in 2 weeks on ${dateTimeLabel}.
+  const body = `🚨 @all Our rookie draft kicks off in 2 weeks on ${dateTimeLabel}.
 
 A few reminders for the draft:
 

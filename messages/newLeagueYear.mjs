@@ -12,7 +12,7 @@ export async function buildNewLeagueYearMessage(league) {
   const rounds = draftRounds(league);
   const bonusPickLabel = bonusPick?.label ?? "{{CONSOLATION_BONUS_PICK}}";
 
-  const body = `Welcome to the ${league.season} league year!
+  const body = `🚨 @all Welcome to the ${league.season} league year!
 
 A few notes as we kick off the new season:
 

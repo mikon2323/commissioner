@@ -36,7 +36,7 @@ export async function buildPlayoffPictureMessage(league, trigger) {
     ? picture.inTheHunt.map((t) => `${t.name} (${t.gap.toFixed(2)} PF)`).join(", ")
     : "None";
 
-  const body = `Playoff picture with ${label} of regular season left:
+  const body = `🚨 @all Playoff picture with ${label} of regular season left:
 
 Bye: ${byeLine}
 

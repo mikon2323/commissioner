@@ -18,7 +18,7 @@ export function buildTrainingCampActiveMessage(league) {
   const irSlots = league.settings.reserve_slots || 0;
   const oldCap = rosterCap(league); // active + taxi, no IR usable pre-camp
 
-  const body = `@all With all training camps kicking off this week, ${irSlots} IR slots and ${taxiSlots} taxi slots are now active. Active rosters were ${oldCap} spots, now they will be ${activeSpots} spots + ${taxiSlots} taxi + ${irSlots} IR.`;
+  const body = `🚨 @all With all training camps kicking off this week, ${irSlots} IR slots and ${taxiSlots} taxi slots are now active. Active rosters were ${oldCap} spots, now they will be ${activeSpots} spots + ${taxiSlots} taxi + ${irSlots} IR.`;
 
   return {
     subject: `Training Camp Roster Update — ${league.season}`,
