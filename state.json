@@ -4,7 +4,12 @@
       "newLeagueYear": true,
       "draftComplete": true,
       "trainingCampActive": true,
-      "kickoffEve": true
+      "kickoffEve": true,
+      "recurring": {
+        "poachingReminder": [
+          "2026-10-27"
+        ]
+      }
     }
   }
 }
