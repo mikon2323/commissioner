@@ -100,8 +100,12 @@ async function runFire(key) {
   const league = await resolveCurrentLeague();
   const state = await readState();
 
+  // For recurring types, prefer the auto-trigger's data (e.g. remainingWeeks
+  // for playoffPicture) when it's available; fall back to just today's date.
   const trigger = type.recurring
-    ? { dateStr: new Date().toLocaleString("sv-SE", { timeZone: "America/New_York" }).slice(0, 10) }
+    ? (type.autoTrigger && (await type.autoTrigger(league))) || {
+        dateStr: new Date().toLocaleString("sv-SE", { timeZone: "America/New_York" }).slice(0, 10),
+      }
     : {};
 
   if (alreadySent(state, league.league_id, type, trigger)) {
