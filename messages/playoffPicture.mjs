@@ -3,6 +3,10 @@ import { computePlayoffPicture } from "../lib/playoffPicture.mjs";
 
 const WEEK_LABELS = { 4: "1 month", 3: "3 weeks", 2: "2 weeks", 1: "1 week" };
 
+// Commissioner's preference: drop the star emojis some owners put in their
+// Sleeper team names (e.g. "West Coast FC ⭐️⭐️") from this message.
+const clean = (name) => name.replace(/[\u2B50\u{1F31F}]\uFE0F?/gu, "").replace(/\s{2,}/g, " ").trim();
+
 // Weekly, Tuesdays at/after 10am EST, for the final month of the regular
 // season (remainingWeeks 4 down through 1, i.e. up to and including the last
 // week before playoffs start).
@@ -28,12 +32,12 @@ export async function buildPlayoffPictureMessage(league, trigger) {
   const picture = await computePlayoffPicture(league);
   const label = WEEK_LABELS[trigger.remainingWeeks] || `${trigger.remainingWeeks} weeks`;
 
-  const byeLine = picture.byes.map((t) => `(${t.seed}) ${t.name}`).join("; ");
+  const byeLine = picture.byes.map((t) => `(${t.seed}) ${clean(t.name)}`).join("; ");
   const matchupLines = picture.matchups
-    .map((m) => `(${m.higher.seed}) ${m.higher.name} vs (${m.lower.seed}) ${m.lower.name}`)
+    .map((m) => `(${m.higher.seed}) ${clean(m.higher.name)} vs (${m.lower.seed}) ${clean(m.lower.name)}`)
     .join("\n");
   const huntLine = picture.inTheHunt.length
-    ? picture.inTheHunt.map((t) => `${t.name} (${t.gap.toFixed(2)} PF)`).join(", ")
+    ? picture.inTheHunt.map((t) => `${clean(t.name)} (${t.gap.toFixed(2)} PF)`).join(", ")
     : "None";
 
   const body = `🚨 @all Playoff picture with ${label} of regular season left:
