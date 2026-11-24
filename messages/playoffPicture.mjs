@@ -30,7 +30,8 @@ export async function getPlayoffPictureTrigger(league) {
 
 export async function buildPlayoffPictureMessage(league, trigger) {
   const picture = await computePlayoffPicture(league);
-  const label = WEEK_LABELS[trigger.remainingWeeks] || `${trigger.remainingWeeks} weeks`;
+  const remainingWeeks = trigger.remainingWeeks ?? picture.remainingWeeks;
+  const label = WEEK_LABELS[remainingWeeks] || `${remainingWeeks} weeks`;
 
   const byeLine = picture.byes.map((t) => `(${t.seed}) ${clean(t.name)}`).join("; ");
   const matchupLines = picture.matchups
